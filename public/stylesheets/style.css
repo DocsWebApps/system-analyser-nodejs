@@ -1,0 +1,73 @@
+.navbar {
+  margin: 0px;
+}
+
+.navbar .nav > li > a {
+  color: #5555AA;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.navbar-default .navbar-brand {
+  color: #5555AA;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+#main {
+  height:500px;
+  background-color: #5555AA;
+}
+
+#title {
+  color: white;
+  text-align: center;
+  height:100px;
+  margin: 10px 10px 10px 10px;
+}
+
+#title #title-text {
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+#title #lead-text {
+    color: white;
+    font-size: 1.5em;
+}
+
+#how-to {
+  border: 2px solid black;
+  height: 500px;
+  margin: 20px;
+}
+
+#server-metrics {
+  color: white;
+  font-size: 1.5em;
+  height:360px;
+  margin: 0px auto 20px auto;
+}
+
+#server-metrics #server-select {
+  color: #5555AA;
+  width: 75%;
+}
+
+#image {
+  height: 360px;
+  margin: 0px 10px 20px 10px;
+}
+
+#image img {
+ display: block;
+ height: 100%;
+ max-width: 100%;
+}
+
+#contacts {
+  border: 2px solid black;
+  height:300px;
+  margin: 20px;
+}

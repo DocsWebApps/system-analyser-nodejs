@@ -1,0 +1,25 @@
+{
+  "name": "system-analyser-expressjs",
+  "version": "0.0.0",
+  "authors": [
+    "Dave Collier <lardelbow@gmail.com>"
+  ],
+  "description": "A visual too for displaying cpu, memory, disk and network metrics",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.3",
+    "font-awesome": "4.2.0",
+    "flot":""
+  }
+}

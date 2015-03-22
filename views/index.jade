@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  #main
+    .container
+      .row
+        .col-sm-12
+          #title
+            #title-text System Analyser
+            #lead-text Check the health of your servers today !
+      .row
+        .col-md-8.hidden-sm.hidden-xs
+          #image
+            img(src='/images/system-analyser.jpg')
+        .col-md-4.col-sm-12
+          #server-metrics 
+            p Please select a server from the drop down list below..
+            p
+              select#server-select(autofocus='autofocus')
+                option Select server...
+                option(value='Kirk') Kirk
+                option(value='Spock') Spock
+                option(value='Bones') Bones
+
+      .row
+        #how-to
+          How To Section
+
+      .row
+        #contacts
+          Contacts Section
