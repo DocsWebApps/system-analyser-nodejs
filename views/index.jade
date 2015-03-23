@@ -14,13 +14,10 @@ block content
             img(src='/images/system-analyser.jpg')
         .col-md-4.col-sm-12
           #server-metrics 
-            p Please select a server from the drop down list below..
-            p
-              select#server-select(autofocus='autofocus')
-                option Select server...
-                option(value='Kirk') Kirk
-                option(value='Spock') Spock
-                option(value='Bones') Bones
+            p Please select a server
+            p#server-select
+            p#server-date
+            p#date-select
 
       .row
         #how-to
