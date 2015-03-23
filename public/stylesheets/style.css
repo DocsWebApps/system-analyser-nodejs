@@ -50,9 +50,13 @@
   margin: 0px auto 20px auto;
 }
 
-#server-metrics #server-select {
+#server,  #date {
   color: #5555AA;
-  width: 75%;
+  width: 50%;
+}
+
+#server-date {
+  margin-top: 10px;
 }
 
 #image {

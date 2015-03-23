@@ -1,6 +1,12 @@
 var request=require('supertest');
 var app=require('./../app');
 
+describe('Test the functions of the Home Page', function() {
+  it('adds the date select when a server is chosen', function(done) {
+    done();
+  });
+});
+
 describe('Test the content of the Home Page', function() {
   it('returns a status code is 200', function(done){
     request(app)
@@ -35,7 +41,10 @@ describe('Test the content of the Home Page', function() {
     request(app)
       .get('/')
       .expect(/id="server-metrics"/)
-      .expect(/Please select a server from the drop down list below../, done)
+      .expect(/Please select a server/, done)
+      .expect(/id="server-select"/)
+      .expect(/id="server-date"/)
+      .expect(/id="date-select"/)
   });
 
   it('has a #how-to  section', function(done){
@@ -49,5 +58,4 @@ describe('Test the content of the Home Page', function() {
       .get('/')
       .expect(/id="contacts"/, done)
   });
-
 });
