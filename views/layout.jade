@@ -1,10 +1,10 @@
 doctype html
 html
   head
-    include ./partials/head
+    include ./partials/common_head
+    block head
   body
-    header
-      include ./partials/navbarmenu
     block content
   footer
-    include ./partials/scripts
+    include ./partials/common_footer
+    block footer

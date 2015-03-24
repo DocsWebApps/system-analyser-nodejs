@@ -18,22 +18,18 @@ var INDEX_PAGE={
     });
 
     $('#date-select').on('change', '#date', function() {
-      var server=$('#server option:selected').val();
-      var date=$('#date option:selected').val();
-
-      $.ajax({
-        type: 'GET',
-        url: '/servers/:'+server+'/:'+date
-      }).done(function(data) {
-        alert(data);
-      });
+      var server=$('#server option:selected').val(),
+          date=$('#date option:selected').val(),
+          url='/servers/'+server+'/'+date;
+          
+      window.open(url,'_blank');
     });
   },
 
-  getServers: function() {
+  fetchServers: function() {
     $.get('/servers', function(servers) {
       var options='<option></option>';
-      servers.forEach(function(value, index, array){
+      servers.forEach(function(value, index, array) {
         options+="<option value='"+value+"''>"+value+"</option>";
       });
       $('#server-select').html('<select id="server" autofocus="autofocus">'+options+'</select>');
@@ -41,7 +37,11 @@ var INDEX_PAGE={
   }
 };
 
+function check() {
+  return 'OK Joe';
+};
+
 $(document).ready(function() {
-  INDEX_PAGE.getServers();
+  INDEX_PAGE.fetchServers();
   INDEX_PAGE.listeners();
 });

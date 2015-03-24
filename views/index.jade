@@ -1,6 +1,11 @@
 extends layout
 
+block head
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
 block content
+  header
+    include ./partials/navbarmenu
   #main
     .container
       .row
@@ -18,11 +23,11 @@ block content
             #server-select
             p#server-date
             #date-select
-
       .row
         #how-to
           How To Section
-
       .row
         #contacts
           Contacts Section
+block footer
+  script(src='/javascripts/index.js')
