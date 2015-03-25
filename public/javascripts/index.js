@@ -37,10 +37,6 @@ var INDEX_PAGE={
   }
 };
 
-function check() {
-  return 'OK Joe';
-};
-
 $(document).ready(function() {
   INDEX_PAGE.fetchServers();
   INDEX_PAGE.listeners();
