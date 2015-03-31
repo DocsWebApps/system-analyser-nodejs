@@ -2,18 +2,20 @@ var express = require('express')
   , path = require('path')
   , favicon = require('serve-favicon')
   , logger = require('morgan')
+  , MongoClient = require('mongodb').MongoClient
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
   , routes = require('./routes')
   , app = express();
 
-MongoClient.connect('mongodb://localhost:27017/sysan_dev', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/sysan', function(err, db) {
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
 
   // uncomment after placing your favicon in /public
   //app.use(favicon(__dirname + '/public/favicon.ico'));
+  // Add all your middleware
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,6 +25,5 @@ MongoClient.connect('mongodb://localhost:27017/sysan_dev', function(err, db) {
 
   routes(app, db);
 });
-
 
 module.exports = app;

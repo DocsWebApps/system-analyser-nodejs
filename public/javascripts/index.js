@@ -7,7 +7,7 @@ var INDEX_PAGE={
 
       $.ajax({
         type: 'GET',
-        url: '/servers/:'+server
+        url: '/servers/'+server
       }).done(function(dates) {
         var options='<option></option>';
         dates.forEach(function(value,index,array) {
