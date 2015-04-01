@@ -1,6 +1,7 @@
 var ContentHandler = require('../controllers/content');
 
 module.exports = exports = function(app, db) {
+  // Define your controllers here
   var contentHandler = new ContentHandler(db);
 
   // Application Routes

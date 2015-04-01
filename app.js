@@ -8,7 +8,7 @@ var express = require('express')
   , routes = require('./routes')
   , app = express();
 
-MongoClient.connect('mongodb://localhost:27017/sysan', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/sysan_dev', function(err, db) {
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
@@ -23,6 +23,7 @@ MongoClient.connect('mongodb://localhost:27017/sysan', function(err, db) {
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.static(path.join(__dirname, 'bower_components')));
 
+  // Add routes/endpoints
   routes(app, db);
 });
 
