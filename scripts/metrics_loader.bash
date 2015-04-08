@@ -30,8 +30,8 @@ do
     temp=$rec_date" "$rec_time
     date=`date --date "$temp" +%s000`
     cpu=$cpu"["$date","`echo $line | awk -F ',' '{print$3}'`"],"
-    mem=$mem"["$date","`echo $line | awk -F ',' '{print$4}'`"],"
-    disk=$disk"["$date","`echo $line | awk -F ',' '{print$5}'`"],"
+    mem=$mem"["$date","`echo $line | awk -F ',' '{print$5}'`"],"
+    disk=$disk"["$date","`echo $line | awk -F ',' '{print$4}'`"],"
     netIn=$netIn"["$date","`echo $line | awk -F ',' '{print$6}'`"],"
     netOut=$netOut"["$date","`echo $line | awk -F ',' '{print$7}'`"],"
   else
@@ -44,10 +44,10 @@ do
     netIn=`echo $netIn| sed '$s/,$//'`
     netOut=`echo $netOut| sed '$s/,$//'`
     output='{"_id":"'$key'","server":"'$server'","date":"'$line_date'","server_metrics":[{"cpu":['$cpu']},{"mem":['$mem']},{"disk":['$disk']},{"netIn":['$netIn']},{"netOut":['$netOut']}]}'
-    echo $output > metrics.json
+    echo $output >> metrics.json
     cpu="["$date","`echo $line | awk -F ',' '{print$3}'`"],"
-    mem="["$date","`echo $line | awk -F ',' '{print$4}'`"],"
-    disk="["$date","`echo $line | awk -F ',' '{print$5}'`"],"
+    mem="["$date","`echo $line | awk -F ',' '{print$5}'`"],"
+    disk="["$date","`echo $line | awk -F ',' '{print$4}'`"],"
     netIn="["$date","`echo $line | awk -F ',' '{print$6}'`"],"
     netOut="["$date","`echo $line | awk -F ',' '{print$7}'`"],"
   fi
