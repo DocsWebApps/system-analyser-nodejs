@@ -16,6 +16,7 @@
     "fs-extra": "^0.18.2",
     "jade": "~1.9.2",
     "line-reader": "^0.2.4",
+    "moment": "^2.10.2",
     "mongodb": "~1.4.34",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0"

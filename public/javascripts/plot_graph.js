@@ -38,8 +38,8 @@ var PLOT_GRAPH={
 
     targetDiv.bind("plothover", function (event, pos, item) {
       if (item) {
-        var x = item.datapoint[0].toFixed(2),
-          y = item.datapoint[1].toFixed(2);
+        var x = new Date(item.datapoint[0]),
+          y = item.datapoint[1].toFixed(2)+' %';
         $("#tooltip").html(y + " , " + x)
           .css({top: item.pageY+10, left: item.pageX+10})
           .fadeIn(200);

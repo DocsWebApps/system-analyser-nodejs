@@ -9,12 +9,12 @@ var fs=require('fs'),
     server=null,
     firstRecord=true;
 
-if(inputParams.length<3) {
-  console.log("Need to enter the inFile as a parameter!");
+if(inputParams.length<4) {
+  console.log("Need to enter the inFile and an ourFile as parameters!");
   process.exit();
 } else {
   inFile=inputParams[2];
-  outFile='metrics1.json';
+  outFile=inputParams[3];
 }
 
 // Check the file exists - use fs-extra !
@@ -59,12 +59,16 @@ lineReader.eachLine(inFile, function(line, last) {
 
   if (last) {
     key=server+'-'+startDate.replace(/\//g,'');
-    //recs.push({"_id":key,"server":server,"date":startDate.replace(/\//g,''),"server_metrics":[JSON.stringify({"cpu": cpu}),JSON.stringify({"mem": mem}),JSON.stringify({"disk": disk}),JSON.stringify({"netIn": netIn}),JSON.stringify({"netOut": netOut})]});
     recs.push('{"_id":"'+key+'","server":"'+server+'","date":"'+startDate.replace(/\//g,'')+'","server_metrics":[{"cpu":'+JSON.stringify(cpu)+'},{"mem":'+JSON.stringify(mem)+'},{"disk":'+JSON.stringify(disk)+'},{"netIn":'+JSON.stringify(netIn)+'},{"netOut":'+ JSON.stringify(netOut)+'}]}');
-    recs.forEach(function(val,len,array) {
-      console.log(val);
+    var fs = require('fs');
+    var stream = fs.createWriteStream(outFile);
+    stream.once('open', function(fd) {
+      recs.forEach(function(val,len,array) {
+        stream.write(val+"\n");
+      });
+      stream.end();
     });
+
     return false;
   };
 });
-
