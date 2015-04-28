@@ -45,6 +45,9 @@ do
     netOut=`echo $netOut| sed '$s/,$//'`
     output='{"_id":"'$key'","server":"'$server'","date":"'$line_date'","server_metrics":[{"cpu":['$cpu']},{"mem":['$mem']},{"disk":['$disk']},{"netIn":['$netIn']},{"netOut":['$netOut']}]}'
     echo $output >> metrics.json
+    rec_time=`echo $line| awk -F ',' '{print$2}'`
+    temp=$rec_date" "$rec_time
+    date=`date --date "$temp" +%s000`
     cpu="["$date","`echo $line | awk -F ',' '{print$3}'`"],"
     mem="["$date","`echo $line | awk -F ',' '{print$5}'`"],"
     disk="["$date","`echo $line | awk -F ',' '{print$4}'`"],"
