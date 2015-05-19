@@ -11,7 +11,7 @@ var INDEX_PAGE={
       }).done(function(dates) {
         var options='<option></option>';
         dates.forEach(function(value,index,array) {
-          options+="<option value='"+value+"''>"+value+"</option>";
+          options+="<option value='"+value+"''>"+value.substring(2,4)+'/'+value.substring(0,2)+'/'+value.substring(4,9)+"</option>";
         });
         $('#date-select').html('<select id="date" autofocus="autofocus">'+options+'</select>');
       });

@@ -5,9 +5,8 @@ var fs=require('fs'),
     inFile=null,
     outFile=null,
     lineReader = require('line-reader'),
-    lineArray=null,
-    server=null,
-    firstRecord=true;
+    server=null;
+
 
 if(inputParams.length<4) {
   console.log("Need to enter the inFile and an ourFile as parameters!");
@@ -15,11 +14,10 @@ if(inputParams.length<4) {
 } else {
   inFile=inputParams[2];
   outFile=inputParams[3];
+  server=inFile.split('_')[0].split('/')[2];
 }
 
-// Check the file exists - use fs-extra !
-
-server=inFile.split('_')[0].split('/')[2];
+// Check the inFile exists - use fs-extra !
 
 var startDate=null,
     cpu=[],
@@ -28,7 +26,9 @@ var startDate=null,
     netIn=[],
     netOut=[],
     key=null,
-    recs=[];
+    recs=[],    
+    lineArray=null,
+    firstRecord=true;
 
 lineReader.eachLine(inFile, function(line, last) {
   lineArray=line.split(',');
@@ -68,7 +68,6 @@ lineReader.eachLine(inFile, function(line, last) {
       });
       stream.end();
     });
-
     return false;
   };
 });

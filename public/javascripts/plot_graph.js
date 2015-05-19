@@ -4,7 +4,7 @@ var PLOT_GRAPH={
         targetDiv=$(targetDiv);
 
     options= {
-      xaxis: {mode: 'time', minTickSize: [1, 'hour']},
+      xaxis: {mode: 'time', minTickSize: [1, 'hour'], timezone: 'browser'},
       crosshair: { mode: 'xy'},
       selection: { mode: 'xy'},
       grid: {hoverable: true, clickable: true, backgroundColor: '#FFFFED'},
